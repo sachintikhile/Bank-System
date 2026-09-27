@@ -1,0 +1,20 @@
+{
+  "name": "bank-system",
+  "version": "1.0.0",
+  "description": "Enterprise Core Banking & Double-Entry Ledger Engine",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "keywords": [
+    "banking",
+    "core-banking",
+    "double-entry",
+    "ledger",
+    "fintech"
+  ],
+  "author": "Sachin Tikhile",
+  "license": "MIT"
+}
