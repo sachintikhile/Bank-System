@@ -4,9 +4,12 @@ import { DashboardView } from './views/dashboard.js';
 import { AccountsView } from './views/accounts.js';
 import { TransfersView } from './views/transfers.js';
 import { CardsView } from './views/cards.js';
+import { LoansView } from './views/loans.js';
+import { AnalyticsView } from './views/analytics.js';
+import { AuditView } from './views/audit.js';
 
 /**
- * ApexBank Frontend Application Controller
+ * ApexBank Comprehensive Frontend Application Controller
  */
 export class App {
   constructor() {
@@ -48,20 +51,21 @@ export class App {
         if (pageTitle) pageTitle.textContent = 'Virtual Cards & Tokenization';
         new CardsView(mainContent).render();
         break;
+      case 'loans':
+        if (pageTitle) pageTitle.textContent = 'Lending, Credit & Amortization';
+        new LoansView(mainContent).render();
+        break;
+      case 'analytics':
+        if (pageTitle) pageTitle.textContent = 'Treasury & Liquidity Analytics';
+        new AnalyticsView(mainContent).render();
+        break;
+      case 'audit':
+        if (pageTitle) pageTitle.textContent = 'WORM Audit Trail & Compliance';
+        new AuditView(mainContent).render();
+        break;
       default:
-        if (pageTitle) pageTitle.textContent = state.currentView.toUpperCase();
-        mainContent.innerHTML = `
-          <div class="card" style="text-align: center; padding: 60px 20px;">
-            <div style="font-size: 2.5rem; margin-bottom: 12px;">🚧</div>
-            <h3>${state.currentView.toUpperCase()} Module</h3>
-            <p style="color: var(--text-muted); margin-top: 8px;">
-              This module will be rendered by the upcoming frontend task.
-            </p>
-            <button class="btn btn-primary" style="margin-top: 20px;" onclick="window.history.back?.() || store.setView('dashboard')">
-              Return to Dashboard
-            </button>
-          </div>
-        `;
+        if (pageTitle) pageTitle.textContent = 'Financial Overview';
+        new DashboardView(mainContent).render();
     }
   }
 }
