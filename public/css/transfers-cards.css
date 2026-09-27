@@ -1,0 +1,70 @@
+/* Virtual Card Visual Component */
+.virtual-card {
+  width: 100%;
+  max-width: 420px;
+  height: 240px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 60%, #1e1b4b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6), 0 0 20px rgba(59, 130, 246, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.virtual-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.virtual-card:hover {
+  transform: translateY(-4px) rotateX(2deg);
+  box-shadow: 0 20px 45px -5px rgba(0, 0, 0, 0.7), 0 0 30px rgba(59, 130, 246, 0.25);
+}
+
+.virtual-card.frozen {
+  background: linear-gradient(135deg, #334155 0%, #0f172a 100%);
+  filter: grayscale(0.85);
+  opacity: 0.85;
+}
+
+.card-chip {
+  width: 44px;
+  height: 32px;
+  background: linear-gradient(135deg, #fcd34d, #d97706);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+/* Payment Rail Selection Options */
+.rail-option-card {
+  padding: 16px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rail-option-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  background-color: var(--bg-card-hover);
+}
+
+.rail-option-card.active {
+  border-color: var(--primary-accent);
+  background-color: rgba(0, 82, 255, 0.12);
+  box-shadow: 0 0 0 1px var(--primary-accent);
+}
